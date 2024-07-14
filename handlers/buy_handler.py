@@ -71,5 +71,5 @@ def handle_vps_selection(call):
     bot.send_message(chat_id=ADMIN_ID, text=f'User {call.message.chat.username} ingin membeli VPS {size} GB.')
 
 def send_rdp(bot, message, size):
-    rdp_info = f'RDP untuk {size} GB telah dibuat. Berikut adalah detail RDP Anda:\nIP: 192.168.1.1\nUsername: user\nPassword: password'
+    rdp_info = f'RDP untuk {size} GB telah dibuat. Berikut adalah detail RDP Anda:\nIP: -\nUsername: -\nPassword: -'
     bot.send_message(chat_id=message.chat.id, text=rdp_info)
