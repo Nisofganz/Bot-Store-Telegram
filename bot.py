@@ -4,7 +4,8 @@ import os
 from config import API_TOKEN, ADMIN_ID
 from handlers.buy_handler import ask_vps_size, handle_vps_size
 from handlers.list_handler import list_prices
-from handlers.start_handler import start 
+from handlers.start_handler import start
+from handlers.user_handler import user_count, buyer_count
 
 bot = telebot.TeleBot(API_TOKEN)
 
@@ -17,7 +18,7 @@ def start_command(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
-    bot.reply_to(message, 'Fitur:\n/buy - Beli VPS\n/list - Daftar Harga RDP\n/register - Daftar\nOwner: t.me/GloryOfNisof')
+    bot.reply_to(message, 'Fitur:\n/buy - Beli VPS\n/list - Daftar Harga RDP\nnOwner: t.me/GloryOfNisof')
 
 @bot.message_handler(commands=['buy'])
 def buy_vps(message):
@@ -31,6 +32,14 @@ def buy_vps(message):
 @bot.message_handler(commands=['list'])
 def list_vps_prices(message):
     list_prices(bot, message)
+
+@bot.message_handler(commands=['user'])
+def user_command(message):
+    user_count(bot, message)
+
+@bot.message_handler(commands=['buyer'])
+def buyer_command(message):
+    buyer_count(bot, message)
 
 @bot.message_handler(func=lambda message: 'gb' in message.text.lower())
 def handle_size(message):
