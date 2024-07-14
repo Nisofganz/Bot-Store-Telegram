@@ -3,7 +3,6 @@ import urllib.request
 import logging
 from config import TRIPAY_API_KEY, ADMIN_ID
 
-# Konfigurasi logging
 logging.basicConfig(level=logging.INFO)
 
 def ask_vps_size(bot, message):
